@@ -1,8 +1,8 @@
-###############################
-#### Deep Learning Algorithms #####
-###############################
+#############################################################################################
+################################### Deep Learning Algorithms ################################
+#############################################################################################
 
-# ======= MLPNN ======
+# ========================================== MLPNN ================================================
 
 import numpy as np
 import pandas as pd
@@ -36,11 +36,6 @@ feature_subsets = {
 
 feature_subsets = {
     "Stability_sel": ['LOC_Os03g33590', 'LOC_Os02g43410', 'LOC_Os09g37910', 'LOC_Os11g13980'],
-
-    "Boruta":        ['LOC_Os01g01610', 'LOC_Os01g04340', 'LOC_Os01g04360', 'LOC_Os01g04370'],
-
-    "RFE":           ['LOC_Os01g04360', 'LOC_Os03g14180', 'LOC_Os08g25690', 'LOC_Os11g13980'],
-
     "MRMR":          ['LOC_Os03g14180', 'LOC_Os03g64210', 'LOC_Os04g44830', 'LOC_Os01g04370']
 } ## Heat matrix
 
@@ -145,7 +140,7 @@ for method, rep in reports.items():
     print(rep['classification_report_test'])
 
 
-##=================== CNN ==========================
+##======================================== CNN ===============================================
 
 
 import numpy as np
@@ -171,28 +166,6 @@ import pandas as pd
 from tensorflow import keras
 from scikeras.wrappers import KerasClassifier
 from sklearn.metrics import confusion_matrix, classification_report, f1_score
-
-
-feature_subsets = {
-    "Stability_sel": ['LOC_Os10g38000', 'LOC_Os05g11610', 'LOC_Os01g74140', 'LOC_Os03g13030',
-                      'LOC_Os04g40874', 'LOC_Os01g62830', 'LOC_Os04g16130', 'LOC_Os10g41270',
-                      'LOC_Os11g13840', 'LOC_Os10g36520'],
-    "Boruta":        ['LOC_Os01g04330', 'LOC_Os01g04590', 'LOC_Os01g06590', 'LOC_Os01g12000',
-                      'LOC_Os01g14100', 'LOC_Os01g15350', 'LOC_Os01g15640', 'LOC_Os01g18220',
-                      'LOC_Os01g19170', 'LOC_Os01g22600'],
-    "RFE":           ['LOC_Os01g11280', 'LOC_Os01g74140', 'LOC_Os03g33520', 'LOC_Os03g38210',
-                      'LOC_Os03g44290', 'LOC_Os04g16130', 'LOC_Os05g11610', 'LOC_Os09g30250',
-                      'LOC_Os10g38000', 'LOC_Os10g41270'],
-    "MRMR":          ['LOC_Os03g14010', 'LOC_Os07g42280', 'LOC_Os06g14670', 'LOC_Os01g18220',
-                      'LOC_Os08g37444', 'LOC_Os03g09170', 'LOC_Os03g26910', 'LOC_Os09g26920',
-                      'LOC_Os04g55920', 'LOC_Os02g52780'],
-    "Tree_based":    ['LOC_Os03g09170', 'LOC_Os05g35740', 'LOC_Os06g06880', 'LOC_Os09g23780',
-                      'LOC_Os10g07229', 'LOC_Os12g31400', 'LOC_Os11g09230', 'LOC_Os01g12180',
-                      'LOC_Os07g15880', 'LOC_Os08g04840'],
-    "Genetic":       ['LOC_Os01g51920', 'LOC_Os03g12320', 'LOC_Os04g45810', 'LOC_Os05g32210',
-                      'LOC_Os06g51220', 'LOC_Os07g35520', 'LOC_Os07g44610', 'LOC_Os08g35760',
-                      'LOC_Os10g30820', 'LOC_Os02g51164']
-}
 
 def build_cnn(conv_layers=1, filters=32, kernel_size=2,
               dense_layers=1, dense_units=64,
@@ -456,7 +429,7 @@ for method, rep in reports_cnn.items():
     print("\nTEST Classification Report:\n", rep['cr_test'])
 
 
-# ============== GAN ================
+# ======================================================== GAN ==========================================================
 
 import numpy as np
 import pandas as pd
@@ -689,7 +662,7 @@ else:
     print("\nNo successful results to summarize.")
 
 
-#============== Deep Autoencoders (DAE) =================
+#================================================= Deep Autoencoders (DAE) ======================================
 
 # To find out the progress stage of the codes, tqdm library was used, also the gene panels will be used one by one.
 
@@ -868,17 +841,5 @@ for method, rep in reports.items():
     print("\nTRAIN Classification Report:\n", rep['cr_train'])
     print("\nTEST Confusion Matrix:\n", rep['cm_test'])
     print("\nTEST Classification Report:\n", rep['cr_test'])
-
-
-
-
-
-
-
-
-
-
-
-
 
 
