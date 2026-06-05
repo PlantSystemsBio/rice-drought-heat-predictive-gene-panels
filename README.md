@@ -88,7 +88,7 @@ rice-stress-predictive-gene-panels/
 │
 ├── README.md
 ├── LICENSE
-├── requirements.txt
+├── requirements
 │
 ├── feature_selection.py
 │   ├── stability_selection
@@ -133,7 +133,7 @@ All feature selection methods and deep learning models were evaluated using:
 * Stratified 5-fold cross-validation
 * F1-score as the primary evaluation metric
 * Independent training and testing datasets
-* Hyperparameter optimization for each feature selection pipeline
+* Parameter optimization (tuning)
 
 ## Disclaimer
 
@@ -143,7 +143,7 @@ Users are strongly encouraged to execute these analyses on high-performance comp
 
 ## Author
 
-**Masoud Shahsavari**
+**Dr. Masoud Shahsavari**
 
 Department of Agronomy and Plant Breeding
 College of Agriculture and Natural Resources
