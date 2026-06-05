@@ -1,8 +1,8 @@
-###############################
-#### Feature Selection Methods ####
-###############################
+#########################################################################################################
+####################################### Feature Selection Methods #######################################
+#########################################################################################################
 
-#============== Stability Selection =============
+#=========================== Stability Selection ==========================
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import StratifiedKFold, cross_val_score
@@ -81,7 +81,7 @@ for name, clf in models.items():
 df_results = pd.DataFrame(results)
 df_results
 
-#=============== Boruta ===============
+#========================================= Boruta =========================================
 
 import numpy as np
 import pandas as pd
@@ -155,7 +155,7 @@ for name, clf in models.items():
 df_boruta = pd.DataFrame(results)
 print(df_boruta)
 
-#============= Recursive Feature Elimination with Cross Validation(RFECV) ====
+#======================================= Recursive Feature Elimination with Cross Validation(RFECV) ==============================
 
 import numpy as np
 import pandas as pd
@@ -258,7 +258,7 @@ df_rfecv = pd.DataFrame(rfecv_results)
 print("\nRFECV results:\n", df_rfecv)
 
 
-#==== Mutual Information- Minimum Redundancy Maximum Relevance (MImRMR)===
+#============================== Mutual Information- Minimum Redundancy Maximum Relevance (MImRMR)================
 
 import numpy as np
 import pandas as pd
@@ -337,7 +337,7 @@ df_all = pd.concat([df_mi, df_mrmr], ignore_index=True)
 print("\nSummary of MI vs mRMR selection:")
 print(df_all)
 
-#====== Embedded gradient boosting feature selection (EGBFS) =======
+#================================ Embedded gradient boosting feature selection (EGBFS) =================================
 
 import numpy as np
 import pandas as pd
@@ -389,7 +389,7 @@ for name, clf in models.items():
 df_gb = pd.DataFrame(results)
 print(df_gb)
 
-#========= genetic Algorithm ============
+#================================================ genetic Algorithm ===================================================
 
 from sklearn_genetic import GAFeatureSelectionCV
 from sklearn.pipeline import make_pipeline
