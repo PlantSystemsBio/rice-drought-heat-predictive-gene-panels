@@ -1,165 +1,205 @@
-Rice Stress Predictive Gene Panels
+# Rice Stress Predictive Gene Panels
 
-This repository contains the code used for the study:
+## Deep Learning and Feature Selection Reveal Compact Gene Panels Characterizing Drought and Heat Stress Responses in Rice
 
-"Deep Learning and Feature Selection Reveal Compact Gene Panels Characterizing Drought and Heat Stress Responses in Rice"
+This repository contains the source code used in the study:
 
-Masoud Shahsavari — University of Tehran
+**Deep Learning and Feature Selection Reveal Compact Gene Panels Characterizing Drought and Heat Stress Responses in Rice**
 
-Overview
+### Overview
 
-This project integrates RNA-seq data, multiple feature selection (FS) methods, and deep learning (DL) algorithms to identify compact predictive gene panels associated with drought and heat stress responses in rice (Oryza sativa L.).
+Rice (*Oryza sativa* L.) is one of the world's most important staple crops, yet its productivity is increasingly threatened by drought and heat stress. This repository provides the complete computational workflow used to identify compact predictive gene panels associated with drought and heat stress responses in rice.
 
-The workflow evaluates candidate gene subsets using machine learning and deep learning classifiers, with performance assessed using stratified 5-fold cross-validation and F1-score.
+The framework integrates RNA-seq data, feature selection algorithms, and deep learning models to discover biologically meaningful and highly predictive gene signatures. Feature subsets were evaluated using stratified 5-fold cross-validation and F1-score as the primary performance metric.
 
-Feature Selection Methods
+The final predictive gene panels consisted of:
+
+* **10 genes** for drought stress classification
+* **4 genes** for heat stress classification
+
+Among all evaluated approaches, the combination of **Minimum-Redundancy Maximum-Relevance (mRMR)** feature selection and **Multi-Layer Perceptron Neural Network (MLPNN)** achieved the highest predictive performance.
+
+---
+
+## Workflow
+
+RNA-seq Data → Feature Selection → Predictive Gene Panels → Deep Learning Evaluation → Performance Assessment
+
+---
+
+## Feature Selection Methods
 
 The repository includes implementations of the following feature selection approaches:
 
-Stability Selection (SS)
+### 1. Stability Selection (SS)
 
-Subsampling-based sparse feature selection using logistic regression.
+A subsampling-based feature selection framework that combines repeated random sampling with sparse logistic regression to identify features consistently selected across data partitions.
 
-Boruta
+### 2. Boruta
 
-All-relevant feature selection using Random Forest and shadow features.
+An all-relevant feature selection method based on Random Forests and shadow features, designed to identify all biologically relevant genes associated with stress responses.
 
-RFE / RFECV
+### 3. Recursive Feature Elimination (RFE) and RFECV
 
-Recursive feature elimination with optional cross-validation for automatic subset-size determination.
+Wrapper-based methods that iteratively remove less informative features and identify optimal gene subsets through cross-validation.
 
-Mutual Information (MI)
+### 4. Mutual Information (MI)
 
-Feature ranking based on information-theoretic relevance.
+An information-theoretic method that ranks genes according to their statistical dependence with the stress phenotype.
 
-Minimum-Redundancy Maximum-Relevance (mRMR)
+### 5. Minimum-Redundancy Maximum-Relevance (mRMR)
 
-Greedy selection balancing feature relevance and redundancy.
+A feature selection strategy that simultaneously maximizes relevance to the target phenotype while minimizing redundancy among selected genes.
 
-Embedded Gradient Boosting Feature Selection (EGBFS)
+### 6. Embedded Gradient Boosting Feature Selection (EGBFS)
 
-Tree-based embedded feature ranking using gradient boosting.
+An embedded approach that ranks genes according to feature importance scores derived from gradient boosting classifiers.
 
-Genetic Algorithm (GA)
+### 7. Genetic Algorithm (GA)
 
-Evolutionary optimization of fixed-size gene subsets.
+An evolutionary optimization approach that searches for optimal gene subsets using selection, crossover, and mutation operators.
 
-Deep Learning Algorithms
+---
 
-The selected gene panels are evaluated using:
+## Deep Learning Methods
 
-Multi-layer Perceptron Neural Network (MLPNN)
+### 1. Multi-Layer Perceptron Neural Network (MLPNN)
 
-Grid-searched architectures with L2 regularization and stratified 5-fold CV.
+Fully connected neural networks with extensive hyperparameter optimization including:
 
-Convolutional Neural Network (CNN)
+* Hidden layer architecture
+* Learning rate
+* Activation function
+* L2 regularization
 
-1D convolutional architectures with automated hyperparameter tuning.
+### 2. Convolutional Neural Network (CNN)
 
-Generative Adversarial Network (GAN)
+One-dimensional convolutional neural networks designed to learn local relationships among selected gene features.
 
-Minority-class data augmentation for stress-condition samples.
+### 3. Generative Adversarial Network (GAN)
 
-Denoising Autoencoder (DAE)
+GAN-based data augmentation was used to generate synthetic minority-class samples and mitigate class imbalance.
 
-Representation learning and dimensionality reduction prior to classification.
+### 4. Denoising Autoencoder (DAE)
 
-Repository Structure
+Autoencoder-based representation learning for generating compact latent feature embeddings prior to classification.
 
+---
+
+## Repository Structure
+
+```text
 rice-stress-predictive-gene-panels/
-
+│
 ├── README.md
-
 ├── LICENSE
-
 ├── requirements.txt
-
 │
-
 ├── feature_selection/
-
-│ ├── stability_selection.py
-
-│ ├── boruta.py
-
-│ ├── rfe_rfecv.py
-
-│ ├── mi_mrmr.py
-
-│ ├── egbfs.py
-
-│ └── ga_selection.py
-
+│   ├── stability_selection.py
+│   ├── boruta.py
+│   ├── rfe_rfecv.py
+│   ├── mi_mrmr.py
+│   ├── egbfs.py
+│   └── genetic_algorithm.py
 │
-
 ├── deep_learning/
-
-│ ├── mlpnn.py
-
-│ ├── cnn.py
-
-│ ├── gan_augmentation.py
-
-│ └── dae.py
-
+│   ├── mlpnn.py
+│   ├── cnn.py
+│   ├── gan.py
+│   └── dae.py
 │
-
 ├── data/
-
-│ ├── drought/
-
-│ └── heat/
-
+│   ├── drought/
+│   └── heat/
 │
-
 └── results/
+```
 
-Requirements
+---
 
-The code was developed in Python and depends on common scientific computing and machine learning libraries, including:
+## Software Requirements
 
+The analyses were performed using Python and the following libraries:
+
+```text
 numpy
-
 pandas
-
 scikit-learn
-
-tensorflow / keras
-
-xgboost
-
-boruta
-
+tensorflow
+keras
 matplotlib
-
 seaborn
+xgboost
+boruta
+joblib
+scipy
+```
 
-A complete environment can be recreated using:
+Install dependencies using:
 
+```bash
 pip install -r requirements.txt
+```
 
-Running the Workflow
+---
 
-Example execution order:
+## Usage
 
-# 1. Perform feature selection
+### Feature Selection
 
+Example:
+
+```bash
 python feature_selection/mi_mrmr.py
+```
 
-# 2. Train and evaluate the best-performing deep learning model
+### Deep Learning Evaluation
 
+Example:
+
+```bash
 python deep_learning/mlpnn.py
+```
 
-Adjust input paths and parameters according to the dataset structure.
+Input files, output directories, and hyperparameters can be adjusted within the corresponding scripts.
 
-Citation
+---
 
-If you use this code in your research, please cite the associated publication:
+## Reproducibility
 
-Shahsavari M. Deep Learning and Feature Selection Reveal Compact Gene Panels Characterizing Drought and Heat Stress Responses in Rice.
+All feature selection methods and deep learning models were evaluated using:
 
-[Journal details to be added upon publication.]
+* Stratified 5-fold cross-validation
+* F1-score as the primary evaluation metric
+* Independent training and testing datasets
+* Hyperparameter optimization for each feature selection pipeline
 
-License
+---
 
-This repository is released under the MIT License unless otherwise specified.
+## Citation
+
+If you use this repository in your research, please cite:
+
+Shahsavari M. *Deep Learning and Feature Selection Reveal Compact Gene Panels Characterizing Drought and Heat Stress Responses in Rice.*
+
+(Journal information will be added upon publication.)
+
+---
+
+## Author
+
+**Masoud Shahsavari**
+
+Department of Agronomy and Plant Breeding
+College of Agriculture and Natural Resources
+University of Tehran
+Karaj, Iran
+
+Email: [mshahsavari@ut.ac.ir](mailto:mshahsavari@ut.ac.ir)
+
+---
+
+## License
+
+This project is released under the MIT License.
