@@ -25,6 +25,9 @@ Among all evaluated approaches, the combination of **Mutual Information-Minimum-
 
 * RNA-seq Data → Feature Selection → Predictive Gene Panels → Classifiers → Performance Evaluation →
 Independent Datasets Assessment → Biological Interpretation
+
+![Uploading Fig. 2.jpg…]()
+
 ---
 
 ## Feature Selection Methods
