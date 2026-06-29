@@ -23,7 +23,7 @@ Among all evaluated approaches, the combination of **Mutual Information-Minimum-
 
 ## Workflow
 
-RNA-seq Data → Feature Selection → Predictive Gene Panels → Classifiers → Performance Evaluation →
+* RNA-seq Data → Feature Selection → Predictive Gene Panels → Classifiers → Performance Evaluation →
 Independent dataset assessment → Biological interpretation
 ---
 
@@ -83,16 +83,16 @@ rice-stress-predictive-gene-panels/
 ├── requirements
 │
 ├── feature_selection.py
-│   ├── stability_selection
-│   ├── boruta
-│   ├── rfecv
-│   ├── mimrmr
-│   ├── egbfs
-│   └── ga
+│   ├── SS
+│   ├── Boruta
+│   ├── RFECV
+│   ├── MImRMR
+│   ├── EGBFS
+│   └── GA
 │
-├── deep_learning.py
-    ├── mlpnn
-    ├── cnn
+├── deep_learning_classifiers.py
+    ├── MLPNN
+    ├── CNN
     
 ```
 
