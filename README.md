@@ -1,16 +1,16 @@
-# Rice Stress Predictive Gene Panels
+# Rice Drought/Heat Stress Predictive Gene Panels
 
-## Deep Learning and Feature Selection Reveal Compact Gene Panels Characterizing Drought and Heat Stress Responses in Rice
+## A Feature Selection-Driven Pipeline to Identify Compact Predictive Gene Panels Characterizing Drought and Heat Stress Responses in Rice
 
 This repository contains the source code used in the study:
 
-**Deep Learning and Feature Selection Reveal Compact Gene Panels Characterizing Drought and Heat Stress Responses in Rice**
+**A Feature Selection-Driven Pipeline to Identify Compact Predictive Gene Panels Characterizing Drought and Heat Stress Responses in Rice**
 
 ### Overview
 
 Rice (*Oryza sativa* L.) is one of the world's most important staple crops, yet its productivity is increasingly threatened by drought and heat stress. This repository provides the complete computational workflow used to identify compact predictive gene panels associated with drought and heat stress responses in rice.
 
-The framework integrates RNA-seq data, feature selection methods, and deep learning algorithms to discover biologically meaningful and highly predictive gene signatures.
+The framework integrates RNA-seq data, feature selection methods, and classifiers to discover biologically meaningful and highly predictive gene signatures.
 
 The final predictive gene panels consisted of:
 
@@ -23,8 +23,8 @@ Among all evaluated approaches, the combination of **Mutual Information-Minimum-
 
 ## Workflow
 
-RNA-seq Data → Feature Selection → Predictive Gene Panels → Deep Learning Evaluation → Performance Assessment
-
+RNA-seq Data → Feature Selection → Predictive Gene Panels → Classifiers → Performance Evaluation →
+Independent dataset assessment → Biological interpretation
 ---
 
 ## Feature Selection Methods
@@ -57,7 +57,7 @@ An evolutionary optimization approach that searches for optimal gene subsets usi
 
 ---
 
-## Deep Learning Methods
+## Classifiers
 
 ### 1. Multi-Layer Perceptron Neural Network (MLPNN)
 
@@ -70,14 +70,6 @@ Fully connected neural networks with extensive hyperparameter optimization inclu
 ### 2. Convolutional Neural Network (CNN)
 
 One-dimensional convolutional neural networks designed to learn local relationships among selected gene features.
-
-### 3. Generative Adversarial Network (GAN)
-
-GAN-based data augmentation was used to generate synthetic minority-class samples and mitigate class imbalance.
-
-### 4. Denoising Autoencoder (DAE)
-
-Autoencoder-based representation learning for generating compact latent feature embeddings prior to classification.
 
 ---
 
@@ -101,9 +93,7 @@ rice-stress-predictive-gene-panels/
 ├── deep_learning.py
     ├── mlpnn
     ├── cnn
-    ├── gan
-    └── dae
-
+    
 ```
 
 ---
