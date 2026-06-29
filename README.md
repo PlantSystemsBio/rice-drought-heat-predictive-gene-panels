@@ -23,8 +23,7 @@ Among all evaluated approaches, the combination of **Mutual Information-Minimum-
 
 ## Workflow
 
-* RNA-seq Data → Feature Selection → Predictive Gene Panels → Classifiers → Performance Evaluation →
-Independent Datasets Assessment → Biological Interpretation
+
 
 <img width="5376" height="3360" alt="Fig  2" src="https://github.com/user-attachments/assets/0698f67d-4cde-4804-a212-783f28aec04c" />
 
